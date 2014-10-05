@@ -609,7 +609,7 @@ func hubWebhook(w http.ResponseWriter, r *http.Request) {
 	}
 	if strings.Index(webhook.Repository.RepoName, key.Image) == -1 {
 		logger.Errorf("webhook key image does not match: repo=%s image=%s", webhook.Repository.RepoName, key.Image)
-		http.Error(w, "not found", http.StatusNotFound)
+		http.Error(w, "image not found", http.StatusNotFound)
 		return
 	}
 	logger.Infof("received webhook notification for %s", webhook.Repository.RepoName)
